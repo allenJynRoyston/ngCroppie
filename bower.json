@@ -1,0 +1,26 @@
+{
+  "name": "ngCroppie",
+  "homepage": "https://github.com/allenRoyston/ngCroppie",
+  "authors": [
+    "allen.acr@gmail.com"
+  ],
+  "description": "An Angular module for the awesome Choppie.js",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "choppie",
+    "cropping",
+    "image",
+    "allen",
+    "royston"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
