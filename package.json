@@ -1,0 +1,27 @@
+{
+  "name": "ng-croppie",
+  "version": "1.0.0",
+  "description": "An Angular module for the awesome Croppie.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenRoyston/ngCroppie.git"
+  },
+  "keywords": [
+    "angular",
+    "croppie",
+    "crop",
+    "image",
+    "allen",
+    "royston"
+  ],
+  "author": "allen royston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/allenRoyston/ngCroppie/issues"
+  },
+  "homepage": "https://github.com/allenRoyston/ngCroppie#readme"
+}
