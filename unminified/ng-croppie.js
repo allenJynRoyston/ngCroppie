@@ -12,7 +12,6 @@
  * Version: 1.0.0
  *************************/
 angular.module('ngCroppie', []).directive('ngCroppie', [
-  '$timeout',
   function ($compile) {
     return {
         restrict: 'AE',
@@ -80,6 +79,11 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                   })
                 }, 250);
 
+                scope.$on("$destroy",
+                    function( event ) {
+                        clearInterval(intervalID);
+                    }
+                );
 
                 // respond to changes in src
                 scope.$watch('src', function(newValue, oldValue) {
