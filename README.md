@@ -71,6 +71,7 @@ Now, just add it to your HTML.<br>
 
 
 ### Parameters
+```
 src: [path/to/image.js] OR base64. 
 ng-model: The image output. Returns are a base64. 
 update: [function] place a functon in the controller to run whenever changes are made to the image. 
@@ -79,6 +80,7 @@ viewport: [object] {w: __, h: __}. This will create your output size. Must be sm
 mousezoom: [Boolean] Setting it to true enables you to use the mouse scroll bar to zoom in/out. Not required; defaults to true. Note that zoom must also be true. 
 zoom: [Boolean] Setting it to true shows the zoom slider. Not required; defaults to true. 
 type: [String] Can either be "circle" or "square". Not required; defaults to "square". 
+```
 
 ### Version
 1.0.1
