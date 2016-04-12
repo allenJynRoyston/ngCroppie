@@ -61,8 +61,8 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                       width: scope.boundry.w,
                       height: scope.boundry.h
                     },
-                    showZoom: scope.zoom,
-                    mouseWheelZoom: scope.mousezoom,
+                    showZoom: zoom,
+                    mouseWheelZoom: mouseZoom,
                 }
 
                 if (scope.update != undefined){
