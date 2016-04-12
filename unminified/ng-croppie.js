@@ -10,6 +10,7 @@
  * acrCroppie
  * Allen Royston
  * Version: 1.0.0
+ * Updated 4/12/2016
  *************************/
 angular.module('ngCroppie', []).directive('ngCroppie', [
   function ($compile) {
