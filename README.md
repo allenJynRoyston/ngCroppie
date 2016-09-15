@@ -1,4 +1,5 @@
-
+# Update Coming soon:
+- 9/15/2016: working on converting the newest version of croppie which has vastly improved mobile support.  
 
 # ng-croppie
 What Am I?!
