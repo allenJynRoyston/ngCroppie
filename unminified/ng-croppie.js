@@ -72,13 +72,51 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
 
                 // create new croppie and settime for updates
                 var c = new Croppie(elem[0], options);
-                var intervalID = window.setInterval(function(){
-                  c.result('canvas').then(function(img){
-                    scope.$apply(function(){
-                      scope.ngModel = img
+                //Get Croppie elements for further calculations
+                var croppieBody = angular.element(document.getElementsByTagName('ng-croppie'))[0];
+                var croppieCanvas = angular.element(document.getElementsByClassName('cr-boundary'))[0];
+
+                var intervalID;
+
+                var croppieCanvasRectangle = croppieCanvas.getBoundingClientRect();
+
+                //Initialize interval only if action regitered within ngCroppie container
+                croppieBody.addEventListener("mousedown", function () {
+                  intervalID = window.setInterval(function(){
+                    c.result('canvas').then(function(img){
+                      scope.$apply(function(){
+                        scope.ngModel = img
+                      })
                     })
-                  })
-                }, 250);
+                  }, 250);
+                }, false);
+
+                //Check mouseZoom property to avoid needless event listener initialization
+                if (mouseZoom) {
+                  //Separated "wheel" event listener to prevent conflict with Croppie default "wheel" event listener
+                  croppieBody.addEventListener("wheel", function (evt) {
+                    console.log("Wheel event called");
+                    evt.preventDefault();
+                    if ((evt.clientX > croppieCanvasRectangle.left) && (evt.clientX < croppieCanvasRectangle.right) && (evt.clientY < croppieCanvasRectangle.bottom) && (evt.clientY > croppieCanvasRectangle.top)) {
+                      c.result('canvas').then(function(img){
+                        scope.$apply(function(){
+                          scope.ngModel = img
+                        })
+                      });
+                    }
+                  }, false);
+                }
+
+                // Destroy all created intervals
+                croppieBody.addEventListener("mouseup", function () {
+                  clearInterval(intervalID);
+                }, false);
+                croppieBody.addEventListener("mouseleave", function () {
+                  clearInterval(intervalID);
+                }, false);
+                croppieBody.addEventListener("mouseout", function () {
+                  clearInterval(intervalID);
+                }, false);
 
                 scope.$on("$destroy",
                     function( event ) {
