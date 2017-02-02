@@ -5,6 +5,9 @@
     "allen.acr@gmail.com"
   ],
   "description": "An Angular module for the awesome Choppie.js",
+  "dependencies": {
+    "croppie": "^2.3.0"   
+  },
   "main": "",
   "moduleType": [],
   "keywords": [
