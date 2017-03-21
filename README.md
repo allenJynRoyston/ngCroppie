@@ -7,9 +7,9 @@
 Why another cropping module?!
 
 This is another AngularJS module for the Croppie.js which integrated with more functionalities such as enabling orientation and image rotation.
-Pure Javascript implementation; no dependencies needed! Also responsive!
+This makes it special. Its responsive and purely written in Javascript; no dependencies needed!
 
-Inspired from[ngCroppie](https://github.com/allenRoyston/ngCroppie) people.
+Inspired from [ngCroppie](https://github.com/allenRoyston/ngCroppie) people.
 ### Demo
 Comming soon.
 <!--
