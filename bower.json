@@ -28,6 +28,7 @@
     "ngCroppie",
     "orif"
   ],
+  "private": false,
   "license": "MIT",
   "ignore": [
     "**/.*",
