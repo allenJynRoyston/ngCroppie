@@ -1,22 +1,11 @@
 {
-  "name": "ngAcroppie",
-  "homepage": "https://github.com/orif-jr/ngAcroppie",
+  "name": "ngCroppie",
+  "homepage": "https://github.com/allenRoyston/ngCroppie",
   "authors": [
-    "Orif N. Jr. <orif.zade@gmail.com>"
+    "allen.acr@gmail.com"
   ],
-  "description": "Another angular module for image cropping and rotating using Croppie.js",
+  "description": "An Angular module for the awesome Croppie.js",
   "main": "",
-  "dependencies": {
-    "croppie": "2.4.0"
-  },
-  "overrides": {
-    "croppie": {
-      "main": [
-        "croppie.min.js",
-        "croppie.css"
-      ]
-    }
-  },
   "moduleType": [],
   "keywords": [
     "angular",
@@ -24,11 +13,8 @@
     "cropping",
     "crop",
     "rotate",
-    "image",
-    "ngCroppie",
-    "orif"
+    "image"
   ],
-  "private": false,
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -38,3 +24,4 @@
     "tests"
   ]
 }
+
