@@ -1,8 +1,10 @@
 {
   "name": "ngCroppie",
+  "version": "1.0.0",
   "homepage": "https://github.com/allenRoyston/ngCroppie",
   "authors": [
-    "allen.acr@gmail.com"
+    "Allen Royston <allen.acr@gmail.com>",
+    "Orif N. Jr. <orif.zade@gmail.com>"
   ],
   "description": "An Angular module for the awesome Croppie.js",
   "main": "",

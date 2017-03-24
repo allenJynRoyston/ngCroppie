@@ -18,7 +18,10 @@
     "rotate",
     "image"
   ],
-  "author": "allen royston",
+  "authors": [
+  "Allen Royston <allen.acr@gmail.com>",
+  "Orif N. Jr. <orif.zade@gmail.com>"
+],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/allenRoyston/ngCroppie/issues"
