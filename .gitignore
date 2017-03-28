@@ -1,5 +1,6 @@
 #general
 **/local
+**/gulpfile.js
 
 #bower
 **/bower-components
