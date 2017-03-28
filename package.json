@@ -19,12 +19,21 @@
     "image"
   ],
   "authors": [
-  "Allen Royston <allen.acr@gmail.com>",
-  "Orif N. Jr. <orif.zade@gmail.com>"
-],
+    "Allen Royston <allen.acr@gmail.com>",
+    "Orif N. Jr. <orif.zade@gmail.com>"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/allenRoyston/ngCroppie/issues"
   },
-  "homepage": "https://github.com/allenRoyston/ngCroppie#readme"
+  "homepage": "https://github.com/allenRoyston/ngCroppie#readme",
+  "devDependencies": {
+    "del": "2.2.2",
+    "gulp": "3.9.1",
+    "gulp-clean-css": "3.0.4",
+    "gulp-header": "1.8.8",
+    "gulp-rename": "1.2.2",
+    "gulp-uglify": "2.1.2",
+    "pump": "1.0.2"
+  }
 }
