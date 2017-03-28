@@ -7,14 +7,14 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
 
+var pkg = require('./bower.json');
+var banner = ['/** <%= pkg.name %> - v<%= pkg.version %> */', ''].join('\n');
+
 gulp.task('clean', function(cb) {
     return del(['minified'], cb);
 });
 
 gulp.task('css', ['clean'], function(cb) {
-    var pkg = require('./package.json');
-    var banner = ['/** <%= pkg.name %> - v<%= pkg.version %> */', ''].join('\n');
-    //
     pump([
         gulp.src('unminified/ng-croppie.css'),
         rename({suffix: '.min'}),
@@ -29,6 +29,7 @@ gulp.task('js', ['clean'], function(cb) {
         gulp.src('unminified/ng-croppie.js'),
         rename({suffix: '.min'}),
         uglify(),
+        header(banner, {pkg: pkg}),
         gulp.dest('minified')
     ], cb);
 });
