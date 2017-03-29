@@ -1,6 +1,3 @@
-# Update Coming soon:
-- 9/15/2016: working on converting the newest version of croppie which has vastly improved mobile support.  
-
 # ng-croppie
 What Am I?!
 
@@ -37,7 +34,7 @@ Nothing is required in the controller. For sake of clarity, these are the variab
 
             $scope.inputImage = null;
             $scope.outputImage = null;
-            $scope.onUpdate = function(data){
+            $scope.onUpdate = function(data) {
                 //console.log(data)
             }
     }]);
@@ -46,27 +43,29 @@ Nothing is required in the controller. For sake of clarity, these are the variab
 
 Now, just add it to your HTML.<br>
 ```
-<!-- BARE MINIMUM -->
+<!-- Bare minimum -->
 <ng-croppie   src="inputImage"
               ng-model='outputImage'>
 </ng-croppie>
 
 
 
-<!-- WITH OPTIONS -->
+<!-- With options -->
 <ng-croppie   src="inputImage"
               ng-model='outputImage'
               update='onUpdate'
               boundry="{w: 400, h: 400}"
-              viewport="{w: 300, h:300}"
-              mousezoom="true" 
+              viewport="{w: 300, h: 300}"
+              enableOrientation="true"
+              rotation="90" 
+              mousezoom="true"
               zoom="true" 
               type="circle">
 </ng-croppie>
 
 
 
-<!-- PREVIEW -->
+<!-- Preview -->
 <img  ng-src="{{outputImage}}" />
 ```
 
@@ -78,7 +77,9 @@ ng-model: The image output. Returns are a base64.
 update: [function] place a functon in the controller to run whenever changes are made to the image. 
 boundry: [object] {w: __, h: __}. This will create the size of the container that will host the Croppie tool. Not required, but will default to 300x300. 
 viewport: [object] {w: __, h: __}. This will create your output size. Must be smaller than the boundry or it will equal it. Defaults to 200x200. 
-mousezoom: [Boolean] Setting it to true enables you to use the mouse scroll bar to zoom in/out. Not required; defaults to true. Note that zoom must also be true. 
+mousezoom: [Boolean] Setting it to true enables you to use the mouse scroll bar to zoom in/out. Not required; defaults to true. Note that zoom must also be true.
+enableOrientation: [Boolean] Support for specifying a custom orientation when binding images. Not required; defaults to false.
+rotation: [Integer] Rotate the image by a specified degree amount. Only works with enableOrientation option enabled. Not required; Valid values: 90, 180, 270, -90, -180, -270
 zoom: [Boolean] Setting it to true shows the zoom slider. Not required; defaults to true. 
 type: [String] Can either be "circle" or "square". Not required; defaults to "square". 
 ```
@@ -87,7 +88,8 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 1.0.1
 
 ### Updates
-- added destroy event
+- added orientation
+- added rotation
 
 ### Dependencies
 None, just Angular 1.4+

@@ -1,0 +1,22 @@
+#general
+**/local
+
+#bower
+**/bower-components
+**/bower_components
+
+#node
+**/node_modules
+
+#merge tool
+**/*.BACKUP.*
+**/*.BASE.*
+**/*.LOCAL.*
+**/*.REMOTE.*
+
+#idea
+**/*.iml
+**/*.ipr
+**/*.iws
+**/.idea*
+**/.idea
