@@ -87,8 +87,14 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 ### Version
 1.0.0
 
+### Contributors
+- orif-jr
+- stasinua
+- htao00
+- alanheppenstall
+
 ### Updates
-- updated with Croppie 2.4.0, rotation features and more (thanks to Orif-jr for the update)
+- updated with Croppie 2.4.0, rotation features 
 - added orientation
 - added rotation
 
