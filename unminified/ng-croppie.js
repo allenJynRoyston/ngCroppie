@@ -79,8 +79,8 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 // create new croppie and settime for updates
                 var c = new Croppie(elem[0], options);
                 // get Croppie elements for further calculations
-                var croppieBody = angular.element(document.getElementsByTagName('ng-croppie'))[0];
-                var croppieCanvas = angular.element(document.getElementsByClassName('cr-boundary'))[0];
+                var croppieBody = angular.element(elem[0])[0];
+                var croppieCanvas = angular.element(elem[0].getElementsByClassName('cr-boundary'))[0];
 
                 var intervalID;
 
