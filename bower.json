@@ -7,7 +7,10 @@
     "Orif N. Jr. <orif.zade@gmail.com>"
   ],
   "description": "An Angular module for the awesome Croppie.js",
-  "main": "",
+  "main": [
+    "unminified/ng-croppie.js",
+    "unminified/ng-croppie.css"
+  ],
   "moduleType": [],
   "keywords": [
     "angular",
@@ -26,4 +29,3 @@
     "tests"
   ]
 }
-
