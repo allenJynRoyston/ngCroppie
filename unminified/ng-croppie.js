@@ -73,7 +73,7 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                         width: scope.boundry.w,
                         height: scope.boundry.h
                     },
-                    enableZoom: (zoom == undefined),
+                    enableZoom: zoom,
                     mouseWheelZoom: mouseZoom,
                     showZoomer: zoomSlider,
                     enableExif: scope.exif,
