@@ -12,7 +12,7 @@
  * Version: 1.0.0
  * License: MIT
  * Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
- * Updated 4/4/2017 by Orif-Jr
+ * Updated 4/5/2017 by Orif-Jr
  *************************/
 angular.module('ngCroppie', []).directive('ngCroppie', [
     function ($compile) {
@@ -24,9 +24,9 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 viewport: '=',
                 boundry: '=',
                 type: '@',
-                zoomer: '@',
                 zoom: '@',
                 mousezoom: '@',
+                zoomslider: '@',
                 exif: '@',
                 orientation: '@',
                 update: '=',
@@ -58,11 +58,9 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                 }
 
                 // convert string to Boolean
-                var zoomer = (scope.zoomer === 'true'),
-                    zoom = (scope.zoom === 'true'),
-                    mouseZoom = (scope.mousezoom === 'true'),
-                    exif = (scope.exif === 'true'),
-                    orientation = (scope.orientation === 'true');
+                var zoom = (scope.zoom === 'true' || typeof scope.zoom == 'undefined'),
+                    mouseZoom = (scope.mousezoom === 'true' || typeof scope.mousezoom == 'undefined'),
+                    zoomSlider = (scope.zoomslider === 'true' || typeof scope.zoomslider == 'undefined');
 
                 // define options
                 var options = {
@@ -75,11 +73,11 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
                         width: scope.boundry.w,
                         height: scope.boundry.h
                     },
-                    showZoomer: zoomer,
-                    enableZoom: zoom,
+                    enableZoom: (zoom == undefined),
                     mouseWheelZoom: mouseZoom,
-                    enableExif: exif,
-                    enableOrientation: orientation
+                    showZoomer: zoomSlider,
+                    enableExif: scope.exif,
+                    enableOrientation: scope.orientation
                 };
 
                 if (scope.update != undefined) {
@@ -140,7 +138,11 @@ angular.module('ngCroppie', []).directive('ngCroppie', [
 
                 // image rotation
                 scope.$watch('rotation', function(newValue, oldValue) {
-                    c.rotate(newValue - oldValue);
+                    if (scope.orientation === 'false' || scope.orientation == undefined) {
+                        throw 'ngCroppie: Cannot rotate without \'orientation\' option';
+                    } else {
+                        c.rotate(newValue - oldValue);
+                    }
                 });
 
                 // respond to changes in src
