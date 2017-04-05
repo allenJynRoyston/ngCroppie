@@ -1,6 +1,6 @@
 {
   "name": "ng-croppie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Angular module for the awesome Croppie.js",
   "main": [
     "unminified/ng-croppie.js",

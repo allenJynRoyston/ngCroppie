@@ -9,7 +9,7 @@
 /*************************
  * ngCroppie - An AngularJS module for the awesome Croppie.js
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  * License: MIT
  * Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
  * Updated 4/5/2017 by Orif-Jr
