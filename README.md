@@ -13,7 +13,7 @@ NPM: `npm install ng-croppie`
 
 Bower: `bower install ngCroppie`
 
-Download: [ng-croppie.js](ng-croppie.js) and [ng-croppie.css](ng-croppie.css)
+Download: [ng-croppie.js](unminified/ng-croppie.js) and [ng-croppie.css](unminified/ng-croppie.css)
 
 ## Ensure you link it correctly in your HTML<br>
 ```
@@ -65,8 +65,6 @@ Now, just add it to your HTML.<br>
               viewport="{w: 300, h: 300}"
               enableOrientation="true"
               rotation="90" 
-              mousezoom="true"
-              zoom="true" 
               type="circle">
 </ng-croppie>
 
@@ -85,7 +83,7 @@ update: [function] place a functon in the controller to run whenever changes are
 boundry: [object] {w: __, h: __}. This will create the size of the container that will host the Croppie tool. Not required, but will default to 300x300. 
 viewport: [object] {w: __, h: __}. This will create your output size. Must be smaller than the boundry or it will equal it. Defaults to 200x200. 
 zoom: [Boolean] Set to true by default, which shows the zoom slider. Not required; defaults to true.
-mousezoom: [Boolean] Set to true by default, which enables to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
+mousezoom: [Boolean] Enables to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
 zoomslider: [Boolean] Hide or Show the zoom slider only (scrolling and pinching zoom still possible if set to false). Works with 'zoom' true; defaults to true.
 exif: [Boolean] with exif orientation compatability. Not required; defaults to undefined.
 orientation: [Boolean] Support for specifying a custom orientation when binding images. Not required; defaults to false.
@@ -104,10 +102,9 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - alanheppenstall
 
 ### Updates
-- upgrade to v2.4.1 Croppie.js
-- add zoomslider and exif options
-- enable zoom, mousezoom and zoomslider by default
-- error handling by rotation
+- updated with Croppie 2.4.0, rotation features 
+- added orientation
+- added rotation
 
 ### Dependencies
 None, just Angular 1.4+
