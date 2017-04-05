@@ -63,7 +63,7 @@ Now, just add it to your HTML.<br>
               update='onUpdate'
               boundry="{w: 400, h: 400}"
               viewport="{w: 300, h: 300}"
-              enableOrientation="true"
+              orientation="true"
               rotation="90" 
               type="circle">
 </ng-croppie>
@@ -83,9 +83,9 @@ update: [function] place a functon in the controller to run whenever changes are
 boundry: [object] {w: __, h: __}. This will create the size of the container that will host the Croppie tool. Not required, but will default to 300x300. 
 viewport: [object] {w: __, h: __}. This will create your output size. Must be smaller than the boundry or it will equal it. Defaults to 200x200. 
 zoom: [Boolean] Set to true by default, which shows the zoom slider. Not required; defaults to true.
-mousezoom: [Boolean] Enables to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
+mousezoom: [Boolean] Enables you to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
 zoomslider: [Boolean] Hide or Show the zoom slider only (scrolling and pinching zoom still possible if set to false). Works with 'zoom' true; defaults to true.
-exif: [Boolean] with exif orientation compatability. Not required; defaults to undefined.
+exif: [Boolean] Enables you exif orientation reading from the image data and orient the image correctly before rendering to the page. Not required; defaults to false.
 orientation: [Boolean] Support for specifying a custom orientation when binding images. Not required; defaults to false.
 rotation: [Integer] Rotate the image by a specified degree amount. Only works with 'orientation' true. Not required; Valid values: 90, 180, 270, -90, -180, -270
 type: [String] Can either be "circle" or "square". Not required; defaults to "square". 
@@ -101,16 +101,11 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - htao00
 - alanheppenstall
 
-### Contributors
-- orif-jr
-- stasinua
-- htao00
-- alanheppenstall
-
 ### Updates
-- updated with Croppie 2.4.0, rotation features 
-- added orientation
-- added rotation
+- upgrade to v2.4.1 Croppie.js
+- add zoomslider and exif options
+- enable zoom, mousezoom and zoomslider by default
+- error handling by rotation
 
 ### Dependencies
 None, just Angular 1.4+
