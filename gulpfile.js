@@ -19,7 +19,7 @@ gulp.task('css', ['clean'], function(cb) {
         gulp.src('unminified/ng-croppie.css'),
         rename({suffix: '.min'}),
         minify({compatibility: 'ie11', keepBreaks: true}),
-        header(banner, {pkg: pkg}),
+        //header(banner, {pkg: pkg}),
         gulp.dest('minified')
     ], cb);
 });
@@ -29,7 +29,7 @@ gulp.task('js', ['clean'], function(cb) {
         gulp.src('unminified/ng-croppie.js'),
         rename({suffix: '.min'}),
         uglify(),
-        header(banner, {pkg: pkg}),
+        //header(banner, {pkg: pkg}),
         gulp.dest('minified')
     ], cb);
 });

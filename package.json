@@ -1,8 +1,11 @@
 {
   "name": "ng-croppie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Angular module for the awesome Croppie.js",
-  "main": "index.js",
+  "main": [
+    "unminified/ng-croppie.js",
+    "unminified/ng-croppie.css"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
