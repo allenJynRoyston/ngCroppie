@@ -1,10 +1,10 @@
 {
   "name": "ng-croppie",
   "version": "1.0.1",
-  "description": "An Angular module for the awesome Croppie.js",
+  "description": "An awesome image cropping and rotating module for AngularJS",
   "main": [
-    "unminified/ng-croppie.js",
-    "unminified/ng-croppie.css"
+    "ng-croppie.js",
+    "ng-croppie.css"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,10 +31,10 @@
   },
   "homepage": "https://github.com/allenRoyston/ngCroppie#readme",
   "devDependencies": {
-    "del": "2.2.2",
     "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
     "gulp-clean-css": "3.0.4",
-    "gulp-header": "1.8.8",
+    "gulp-main-bower-files": "1.6.2",
     "gulp-rename": "1.2.2",
     "gulp-uglify": "2.1.2",
     "pump": "1.0.2"
