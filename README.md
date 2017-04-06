@@ -63,8 +63,8 @@ Now, just add it to your HTML.<br>
               update='onUpdate'
               boundry="{w: 400, h: 400}"
               viewport="{w: 300, h: 300}"
-              enableOrientation="true"
-              rotation="90" 
+              orientation="true"
+              rotation="90"  <!-- rotatation to 90 degrees -->
               type="circle">
 </ng-croppie>
 
@@ -102,9 +102,10 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - alanheppenstall
 
 ### Updates
-- updated with Croppie 2.4.0, rotation features 
-- added orientation
-- added rotation
+- added Croppie.js as library dependencies
+- modularized the code structure
+- reorganized files location
+- code refactoring
 
 ### Dependencies
 None, just Angular 1.4+
