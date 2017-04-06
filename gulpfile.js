@@ -12,14 +12,8 @@ gulp.task('css', function(cb) {
         gulp.src('./bower.json'),
         mainBowerFiles('**/*.css'),
         concat('ng-croppie.css'),
-        gulp.dest('./')
-    ], cb);
-
-    //minified
-    pump([
-        gulp.src('./bower.json'),
-        mainBowerFiles('**/*.css'),
-        concat('ng-croppie.css'),
+        gulp.dest('./'),
+        //minified
         rename({suffix: '.min'}),
         minify({compatibility: 'ie11', keepBreaks: true}),
         gulp.dest('./')
