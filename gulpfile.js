@@ -1,36 +1,37 @@
 var gulp = require('gulp');
-var del = require('del');
+var concat = require('gulp-concat');
 var pump = require('pump');
+var mainBowerFiles = require('gulp-main-bower-files');
 var minify = require('gulp-clean-css');
-var header = require('gulp-header');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 
 
-var pkg = require('./bower.json');
-var banner = ['/** <%= pkg.name %> - v<%= pkg.version %> */', ''].join('\n');
-
-gulp.task('clean', function(cb) {
-    return del(['minified'], cb);
-});
-
-gulp.task('css', ['clean'], function(cb) {
+gulp.task('css', function(cb) {
     pump([
-        gulp.src('unminified/ng-croppie.css'),
+        gulp.src('./bower.json'),
+        mainBowerFiles('**/*.css'),
+        concat('ng-croppie.css'),
+        gulp.dest('./')
+    ], cb);
+
+    //minified
+    pump([
+        gulp.src('./bower.json'),
+        mainBowerFiles('**/*.css'),
+        concat('ng-croppie.css'),
         rename({suffix: '.min'}),
         minify({compatibility: 'ie11', keepBreaks: true}),
-        //header(banner, {pkg: pkg}),
-        gulp.dest('minified')
+        gulp.dest('./')
     ], cb);
 });
 
-gulp.task('js', ['clean'], function(cb) {
+gulp.task('js', function(cb) {
     pump([
-        gulp.src('unminified/ng-croppie.js'),
+        gulp.src('ng-croppie.js'),
         rename({suffix: '.min'}),
         uglify(),
-        //header(banner, {pkg: pkg}),
-        gulp.dest('minified')
+        gulp.dest('./')
     ], cb);
 });
 

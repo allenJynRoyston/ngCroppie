@@ -1,8 +1,8 @@
-# ng-croppie
+# ngCroppie - Angular Croppie Tool
 What Am I?!
 
-I'm an awesome AngularJS module for the even more awesome Croppie.js.
-Pure Javascript implementation; no dependencies needed! Also responsive!
+An awesome image cropping and rotating module for AngularJS based on Croppie.js<br>
+Pure Javascript implementation; Also responsive!
 
 ## Live Demo
 
@@ -13,7 +13,7 @@ NPM: `npm install ng-croppie`
 
 Bower: `bower install ngCroppie`
 
-Download: [ng-croppie.js](unminified/ng-croppie.js) and [ng-croppie.css](unminified/ng-croppie.css)
+Download: [ng-croppie.js](ng-croppie.js) and [ng-croppie.css](ng-croppie.css)
 
 ## Ensure you link it correctly in your HTML<br>
 ```
