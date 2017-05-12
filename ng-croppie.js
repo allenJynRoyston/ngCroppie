@@ -2,9 +2,8 @@
  *	 Angular Croppie Tool (ngCroppie)
  *	 An awesome image cropping and rotating module for AngularJS.
  *
- *   Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
- *	 Inspired by Croppie.js people
- *	 https://github.com/Foliotek/Croppie
+ *	 Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
+ *	 Inspired by Croppie.js https://github.com/Foliotek/Croppie
  *
  *	 Version: 1.0.1
  * 	 License: MIT
@@ -17,10 +16,10 @@
     /**
      * Crops, rotates and zooms the image to this element
      *
-     * 20170406 ADD - orif-jr
-     *  Added modularized code procedure
+     * 20170406  orif-jr - Added modularized code procedure
+     * 20170511  orif-jr - Enhanced watchers for src and rotation
      */
-    module.directive('ngCroppie', [function ($compile) {
+    module.directive('ngCroppie', ['$timeout', function ($timeout) {
         return {
             restrict: 'AE',
             scope: {
@@ -97,8 +96,8 @@
 
                 var croppieCanvasRectangle = croppieCanvas.getBoundingClientRect();
 
-                // initialize interval only if action regitered within ngCroppie container
-                croppieBody.addEventListener("mousedown", function() {
+                // initialize interval only if action registered within ngCroppie container
+                croppieBody.addEventListener('mousedown', function() {
                     intervalID = window.setInterval(function() {
                         c.result('canvas').then(function(img) {
                             scope.$apply(function() {
@@ -145,6 +144,11 @@
                         throw 'ngCroppie: Cannot rotate without \'orientation\' option';
                     } else {
                         c.rotate(newValue - oldValue);
+                        c.result('canvas').then(function(img) {
+                            scope.$apply(function () {
+                                scope.ngModel = img;
+                            });
+                        });
                     }
                 });
 
@@ -152,11 +156,13 @@
                 scope.$watch('src', function(newValue, oldValue) {
                     if (scope.src != undefined) {
                         c.bind(scope.src);
-                        c.result('canvas').then(function(img) {
-                            scope.$apply(function () {
-                                scope.ngModel = img;
+                        $timeout(function() {  //delayed for ng-file-upload
+                            c.result('canvas').then(function(img) {
+                                scope.$apply(function () {
+                                    scope.ngModel = img;
+                                });
                             });
-                        });
+                        }, 50);
                     }
                 });
             }
