@@ -92,7 +92,7 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 ```
 
 ## Version
-1.0.1
+1.0.2
 
 ### Contributors
 
@@ -108,7 +108,8 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - code refactoring
 
 ### Dependencies
-None, just Angular 1.4+
+- Angular 1.4+
+- Croppie.js
 
 
 ### License
