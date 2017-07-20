@@ -92,7 +92,7 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 ```
 
 ## Version
-1.0.2
+1.0.3
 
 ### Contributors
 
