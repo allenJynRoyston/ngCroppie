@@ -5,7 +5,7 @@
  *	 Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
  *	 Inspired by Croppie.js https://github.com/Foliotek/Croppie
  *
- *	 Version: 1.0.2
+ *	 Version: 1.0.3
  * 	 License: MIT
  */
 (function () {
@@ -17,7 +17,7 @@
      * Crops, rotates and zooms the image to this element
      *
      * 20170406  orif-jr - Added modularized code procedure
-     * 20170511  orif-jr - Enhanced watchers for src and rotation
+     * 20170720  orif-jr - Enhanced watchers for src and rotation
      */
     module.directive('ngCroppie', ['$timeout', function ($timeout) {
         return {
@@ -162,7 +162,7 @@
                                     scope.ngModel = img;
                                 });
                             });
-                        }, 50);
+                        }, 250);
                     }
                 });
             }
