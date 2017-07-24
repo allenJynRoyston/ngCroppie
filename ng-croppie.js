@@ -48,11 +48,9 @@
                 }
 
                 // catches
-                if (scope.mobile === true) {
-                    scope.viewport.w = (scope.viewport.w != undefined) ? scope.viewport.w : 200;
-                    scope.viewport.h = (scope.viewport.h != undefined) ? scope.viewport.h : 250;
-                    scope.boundry.w = (scope.boundry.w != undefined) ? scope.boundry.w : 250;
-                    scope.boundry.h = (scope.boundry.h != undefined) ? scope.boundry.h : 300;
+                if (scope.mobile === 'true') {
+                    scope.viewport.w = 250; scope.viewport.h = 250;
+                    scope.boundry.w = 300; scope.boundry.h = 300;
                 } else {
                     scope.viewport.w = (scope.viewport.w != undefined) ? scope.viewport.w : 300;
                     scope.viewport.h = (scope.viewport.h != undefined) ? scope.viewport.h : 300;
