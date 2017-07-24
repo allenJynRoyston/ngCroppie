@@ -3,7 +3,7 @@
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Dependency Status][depstat-image]][depstat-url]
-[![Github All Releases][github-downloads-image]][github-downloads-url]
+[![NPM Montly Downloads][npm-downloads-image]][npm-downloads-url]
 [![MIT License][license-image]][license-url]
 
 > Angular Croppie Tool is an image cropping and rotating module for AngularJS based on [Croppie.js](https://github.com/Foliotek/Croppie/)<br>
@@ -125,8 +125,8 @@ from david-dm
 [devdepstat-url]: https://david-dm.org/allenRoyston/ngCroppie?type=dev
 [devdepstat-image]: https://david-dm.org/allenRoyston/ngCroppie/dev-status.svg
 -->
-[github-downloads-url]: https://img.shields.io/github/downloads/allenRoyston/ngCroppie
-[github-downloads-image]: https://img.shields.io/github/downloads/allenRoyston/ngCroppie/total.svg
+[npm-downloads-url]: https://www.npmjs.com/package/ng-croppie
+[npm-downloads-image]: https://img.shields.io/npm/dm/ng-croppie.svg
 
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: LICENSE
