@@ -2,7 +2,8 @@
 
 [![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
-[![DevDependencies Status][devdepstat-image]][devdepstat-url]
+[![Dependency Status][depstat-image]][depstat-url]
+[![Github All Releases][github-downloads-image]][github-downloads-url]
 [![MIT License][license-image]][license-url]
 
 > Angular Croppie Tool is an image cropping and rotating module for AngularJS based on [Croppie.js](https://github.com/Foliotek/Croppie/)<br>
@@ -29,7 +30,7 @@ $ npm install ng-croppie
   - `src` **Image** or **Blob**: path to Image File or Base64;
   - `ng-model` **Base64**: the image output;
 
-####[Demo](http://orif-jr.github.io/ng-croppie/#demo)
+#### [Demo](http://orif-jr.github.io/ng-croppie/#demo)
 
 ## Example
 **JS**
@@ -74,20 +75,19 @@ angular
 
 
 ## Parameters
-```
-src: [path/to/image.js] OR base64. 
-ng-model: The image output. Returns are a base64. 
-update: [function] place a functon in the controller to run whenever changes are made to the image. 
-boundry: [object] {w: __, h: __}. This will create the size of the container that will host the Croppie tool. Not required, but will default to 300x300. 
-viewport: [object] {w: __, h: __}. This will create your output size. Must be smaller than the boundry or it will equal it. Defaults to 200x200. 
-zoom: [Boolean] Set to true by default, which shows the zoom slider. Not required; defaults to true.
-mousezoom: [Boolean] Enables to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
-zoomslider: [Boolean] Hide or Show the zoom slider only (scrolling and pinching zoom still possible if set to false). Works with 'zoom' true; defaults to true.
-exif: [Boolean] with exif orientation compatability. Not required; defaults to undefined.
-orientation: [Boolean] Support for specifying a custom orientation when binding images. Not required; defaults to false.
-rotation: [Integer] Rotate the image by a specified degree amount. Only works with 'orientation' true. Not required; Valid values: 90, 180, 270, -90, -180, -270
-type: [String] Can either be "circle" or "square". Not required; defaults to "square". 
-```
+- **Image** or **Blob** `data`: path to image file or base64;
+- **Base64** `ng-model`: the image output, returns are a base64;
+- **Function** `update`: place a functon in the controller to run whenever changes are made to the image;
+- **Object** `boundry { w: __, h: __ }`: (optional) the size of the container that will host the croppie tool - defaults to 400x400;
+- **Object** `viewport { w: __, h: __ }`: (optional) the output size, must be smaller than the boundry or it will equal it - defaults to 300x300;
+- **Boolean** `zoom`: (optional) enable zoom slider - defaults to true;
+- **Boolean** `mousezoom`: enable mouse scroll bar to zoom in/out. Works with `zoom` - defaults to true;
+- **Boolean** `zoomslider`: enable zoom slider only (scrolling and pinching zoom still possible if set to false), works with `zoom` - defaults to true;
+- **Boolean** `exif`: (optional) enable exif orientation compatability - defaults to undefined;
+- **Boolean** `orientation`: (optional) enable custom orientation support when binding images - defaults to false.
+- **Integer** `rotation`: rotate the image by a specified degree amount, works with `orientation` - valid values: 90, 180, 270, -90, -180, -270;
+- **String** `type`: (optional) can either be 'circle' or 'square' - defaults to 'square';
+- **Boolean** `mobile`: (optional) enable mobile view - defaults to viewport: 250x250 and boundry: 300x300;
 
 ## Version
 1.0.3
@@ -113,12 +113,20 @@ MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie)
 [npm-url]: https://npmjs.org/package/ng-croppie
 [npm-image]: https://img.shields.io/npm/v/ng-croppie.svg
 
-<!-- [![Dependency Status][depstat-image]][depstat-url] -->
+<!--
+from david-dm
 [depstat-url]: https://david-dm.org/allenRoyston/ngCroppie
 [depstat-image]: https://david-dm.org/allenRoyston/ngCroppie.svg
-
+-->
+[depstat-url]: https://gemnasium.com/github.com/allenRoyston/ngCroppie
+[depstat-image]: https://gemnasium.com/badges/github.com/allenRoyston/ngCroppie.svg
+<!--
+[![DevDependencies Status][devdepstat-image]][devdepstat-url]
 [devdepstat-url]: https://david-dm.org/allenRoyston/ngCroppie?type=dev
 [devdepstat-image]: https://david-dm.org/allenRoyston/ngCroppie/dev-status.svg
+-->
+[github-downloads-url]: https://img.shields.io/github/downloads/allenRoyston/ngCroppie
+[github-downloads-image]: https://img.shields.io/github/downloads/allenRoyston/ngCroppie/total.svg
 
-[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: LICENSE
