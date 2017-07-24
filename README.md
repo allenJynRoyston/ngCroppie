@@ -100,9 +100,8 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - alanheppenstall
 
 ### Updates
-- added Croppie.js as library dependencies
-- modularized the code structure
-- reorganized files location
+- added mobile support
+- updated dev dependencies
 - code refactoring
 
 ### License
