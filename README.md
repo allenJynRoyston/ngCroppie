@@ -1,6 +1,7 @@
 # ngCroppie - Angular Croppie Tool
 
 [![Build Status][travis-image]][travis-url]
+[![Bower version][bower-image]][bower-url]
 [![NPM version][npm-image]][npm-url]
 [![Dependency Status][depstat-image]][depstat-url]
 [![NPM Montly Downloads][npm-downloads-image]][npm-downloads-url]
@@ -17,7 +18,7 @@ Pure Javascript implementation; Also responsive!
 
 ```sh
 # Using bower:
-$ bower install ng-croppie
+$ bower install ngCroppie
 
 # Using npm:
 $ npm install ng-croppie
@@ -103,10 +104,13 @@ angular
 - code refactoring
 
 ### License
-MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie)
+MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
 
 [travis-url]: https://img.shields.io/travis/allenRoyston/ngCroppie
 [travis-image]: https://img.shields.io/travis/allenRoyston/ngCroppie.svg
+
+[bower-url]: https://github.com/allenRoyston/ngCroppie#readme
+[bower-image]: https://img.shields.io/bower/v/ngCroppie.svg
 
 [npm-url]: https://npmjs.org/package/ng-croppie
 [npm-image]: https://img.shields.io/npm/v/ng-croppie.svg
