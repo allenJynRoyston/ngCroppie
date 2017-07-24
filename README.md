@@ -35,22 +35,20 @@ $ npm install ng-croppie
 ## Example
 **JS**
 ```js
-function ExampleCtrl(FileSaver, Blob) {
+function ExampleCtrl() {
   var vm = this;
 
-  vm.val = {
-    text: 'Hey ho lets go!'
-  };
+  vm.inputImage = null;
+  vm.outputImage = null;
 
-  vm.download = function(text) {
-    var data = new Blob([text], { type: 'text/plain;charset=utf-8' });
-    FileSaver.saveAs(data, 'text.txt');
+  vm.onUpdate = function(data) {
+    //console.log(data);
   };
 }
 
 angular
-  .module('fileSaverExample', ['ngCroppie'])
-  .controller('ExampleCtrl', ['FileSaver', 'Blob', ExampleCtrl]);
+  .module('exampleModule', ['ngCroppie'])
+  .controller('ExampleCtrl', [ExampleCtrl]);
 ```
 
 **HTML**
@@ -101,7 +99,7 @@ angular
 
 ### Updates
 - added mobile support
-- updated dev dependencies
+- updated dependencies
 - code refactoring
 
 ### License
