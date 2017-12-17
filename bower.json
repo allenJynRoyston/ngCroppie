@@ -12,7 +12,7 @@
     "ng-croppie.css"
   ],
   "dependencies": {
-    "croppie": "2.5.0"
+    "croppie": "2.5.1"
   },
   "overrides": {
     "croppie": {
