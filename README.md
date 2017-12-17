@@ -89,7 +89,7 @@ angular
 - **Boolean** `mobile`: (optional) enable mobile view - defaults to viewport: 250x250 and boundry: 300x300;
 
 ## Version
-1.0.3
+1.2.0
 
 ### Contributors
 
@@ -99,9 +99,8 @@ angular
 - alanheppenstall
 
 ### Updates
-- added mobile support
 - updated dependencies
-- code refactoring
+- fix wheel in firefox
 
 ### License
 MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
