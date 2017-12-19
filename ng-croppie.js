@@ -5,7 +5,7 @@
  *	 Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
  *	 Inspired by Croppie.js https://github.com/Foliotek/Croppie
  *
- *	 Version: 1.2.0
+ *	 Version: 1.2.1
  * 	 License: MIT
  */
 (function () {

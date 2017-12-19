@@ -1,6 +1,6 @@
 {
   "name": "ng-croppie",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An awesome image cropping and rotating module for AngularJS",
   "main": [
     "ng-croppie.js",
