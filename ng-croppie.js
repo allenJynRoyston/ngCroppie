@@ -26,6 +26,7 @@
                 mousezoom: '@',
                 zoomslider: '@',
                 exif: '@',
+                enforceBoundary: '@',
                 orientation: '@',
                 update: '=',
                 ngModel: '=',
@@ -79,6 +80,7 @@
                     mouseWheelZoom: mouseZoom,
                     showZoomer: zoomSlider,
                     enableExif: scope.exif,
+                    enforceBoundary: scope.enforceBoundary,
                     enableOrientation: scope.orientation
                 };
 
@@ -94,6 +96,7 @@
 
                 var intervalID;
 
+                // TODO: needs for investigation
                 var croppieCanvasRectangle = croppieCanvas.getBoundingClientRect();
 
                 // initialize interval only if action registered within ngCroppie container
@@ -104,7 +107,7 @@
                                 scope.ngModel = img;
                             });
                         });
-                    }, 250);
+                    }, 100);
                 }, false);
 
                 // check mouseZoom property to avoid needless event listener initialization
@@ -118,7 +121,6 @@
                                 scope.ngModel = img;
                             });
                         });
-
                     }, false);
 
                     // Firefox
@@ -164,15 +166,17 @@
 
                 // respond to changes in src
                 scope.$watch('src', function(newValue, oldValue) {
-                    if (typeof scope.src !== 'undefined') {
+                    if (typeof scope.src === 'undefined') {
+                        throw 'ngCroppie: Image source undefined!'
+                    } else {
                         c.bind(scope.src);
-                        $timeout(function() {  // delay for the ng-file-upload
+                        window.setInterval(function() {  // force delay for the ng-file-upload
                             c.result('canvas').then(function(img) {
                                 scope.$apply(function () {
                                     scope.ngModel = img;
                                 });
                             });
-                        }, 250);
+                        });
                     }
                 });
             }
