@@ -1,98 +1,95 @@
 # ngCroppie - Angular Croppie Tool
-What Am I?!
 
-An awesome image cropping and rotating module for AngularJS based on Croppie.js<br>
+[![Build Status][travis-image]][travis-url]
+[![Bower version][bower-image]][bower-url]
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][depstat-image]][depstat-url]
+[![NPM Montly Downloads][npm-downloads-image]][npm-downloads-url]
+[![MIT License][license-image]][license-url]
+
+> Angular Croppie Tool is an image cropping and rotating module for AngularJS based on [Croppie.js](https://github.com/Foliotek/Croppie/)<br>
 Pure Javascript implementation; Also responsive!
 
-## Live Demo
+## Dependencies
+- [Angular](https://github.com/angular/angular.js)
+- [Croppie.js](https://github.com/Foliotek/Croppie/)
 
-[Check it out](https://allenroyston.herokuapp.com/access/acr-croppie/)
+## Installation
 
-## Install
-NPM: `npm install ng-croppie`
+```sh
+# Using bower:
+$ bower install ngCroppie
 
-Bower: `bower install ngCroppie`
-
-Download: [ng-croppie.js](ng-croppie.js) and [ng-croppie.css](ng-croppie.css)
-
-## Ensure you link it correctly in your HTML<br>
-```
-<script src="path/to/ng-croppie.min.js"></script>
-<link rel='stylesheet' type="text/css" href="path/to/ng-croppie.min.css"></link>
-```
-<!--
-## CDN
-cdnjs.com provides croppie via cdn https://cdnjs.com/libraries/ng-croppie
-```
-https://cdnjs.cloudflare.com/ajax/libs/ng-croppie/{version}/ng-croppie.min.css
-https://cdnjs.cloudflare.com/ajax/libs/ng-croppie/{version}/ng-croppie.min.js
-```
--->
-
-And add it as a module for your app:<br>
-```
-var app = angular.module('myApp', ['ngCroppie']);
+# Using npm:
+$ npm install ng-croppie
 ```
 
+## Basic usage
+- Include `ngCroppie` module into your project;
+- No dependencies are required in the controller;
+- Add `<ng-croppie>` tag with the following arguments:
+  - `src` **Image** or **Blob**: path to Image File or Base64;
+  - `ng-model` **Base64**: the image output;
 
-Nothing is required in the controller. For sake of clarity, these are the variables you'll see in the demo.<br>
+#### [Demo](http://orif-jr.github.io/ng-croppie/#demo)
+
+## Example
+**JS**
+```js
+function ExampleCtrl() {
+  var vm = this;
+
+  vm.inputImage = null;
+  vm.outputImage = null;
+
+  vm.onUpdate = function(data) {
+    //console.log(data);
+  };
+}
+
+angular
+  .module('exampleModule', ['ngCroppie'])
+  .controller('ExampleCtrl', [ExampleCtrl]);
 ```
-    app.controller('basicController', ['$scope', function($scope) {
 
-            $scope.inputImage = null;
-            $scope.outputImage = null;
-            $scope.onUpdate = function(data) {
-                //console.log(data)
-            }
-    }]);
-```
-
-
-Now, just add it to your HTML.<br>
-```
-<!-- Bare minimum -->
-<ng-croppie   src="inputImage"
-              ng-model='outputImage'>
-</ng-croppie>
-
-
-
-<!-- With options -->
+**HTML**
+```html
 <ng-croppie   src="inputImage"
               ng-model='outputImage'
               update='onUpdate'
               boundry="{w: 400, h: 400}"
               viewport="{w: 300, h: 300}"
               orientation="true"
-              rotation="90"  <!-- rotatation to 90 degrees -->
+              rotation="90"
               type="circle">
 </ng-croppie>
 
 
 
 <!-- Preview -->
-<img  ng-src="{{outputImage}}" />
+<img ng-src="{{outputImage}}" />
 ```
+
+
 
 
 ## Parameters
-```
-src: [path/to/image.js] OR base64. 
-ng-model: The image output. Returns are a base64. 
-update: [function] place a functon in the controller to run whenever changes are made to the image. 
-boundry: [object] {w: __, h: __}. This will create the size of the container that will host the Croppie tool. Not required, but will default to 300x300. 
-viewport: [object] {w: __, h: __}. This will create your output size. Must be smaller than the boundry or it will equal it. Defaults to 200x200. 
-zoom: [Boolean] Set to true by default, which shows the zoom slider. Not required; defaults to true.
-mousezoom: [Boolean] Enables to use the mouse scroll bar to zoom in/out. Works with 'zoom' true; defaults to true.
-zoomslider: [Boolean] Hide or Show the zoom slider only (scrolling and pinching zoom still possible if set to false). Works with 'zoom' true; defaults to true.
-exif: [Boolean] with exif orientation compatability. Not required; defaults to undefined.
-orientation: [Boolean] Support for specifying a custom orientation when binding images. Not required; defaults to false.
-rotation: [Integer] Rotate the image by a specified degree amount. Only works with 'orientation' true. Not required; Valid values: 90, 180, 270, -90, -180, -270
-type: [String] Can either be "circle" or "square". Not required; defaults to "square". 
-```
+- **Image** or **Blob** `data`: path to image file or base64;
+- **Base64** `ng-model`: the image output, returns are a base64;
+- **Function** `update`: place a functon in the controller to run whenever changes are made to the image;
+- **Object** `boundry { w: __, h: __ }`: (optional) the size of the container that will host the croppie tool - defaults to 400x400;
+- **Object** `viewport { w: __, h: __ }`: (optional) the output size, must be smaller than the boundry or it will equal it - defaults to 300x300;
+- **Boolean** `zoom`: (optional) enable zoom slider - defaults to true;
+- **Boolean** `mousezoom`: enable mouse scroll bar to zoom in/out. Works with `zoom` - defaults to true;
+- **Boolean** `zoomslider`: enable zoom slider only (scrolling and pinching zoom still possible if set to false), works with `zoom` - defaults to true;
+- **Boolean** `exif`: (optional) enable exif orientation compatability - defaults to undefined;
+- **Boolean** `orientation`: (optional) enable custom orientation support when binding images - defaults to false.
+- **Integer** `rotation`: rotate the image by a specified degree amount, works with `orientation` - valid values: 90, 180, 270, -90, -180, -270;
+- **String** `type`: (optional) can either be 'circle' or 'square' - defaults to 'square';
+- **Boolean** `mobile`: (optional) enable mobile view - defaults to viewport: 250x250 and boundry: 300x300;
 
 ## Version
-1.0.1
+1.2.1
 
 ### Contributors
 
@@ -102,14 +99,36 @@ type: [String] Can either be "circle" or "square". Not required; defaults to "sq
 - alanheppenstall
 
 ### Updates
-- added Croppie.js as library dependencies
-- modularized the code structure
-- reorganized files location
-- code refactoring
-
-### Dependencies
-None, just Angular 1.4+
-
+- added enforceBoundary option
+- updated dependencies
+- stability improvement
 
 ### License
-MIT - go nuts y'all.
+MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
+
+[travis-url]: https://img.shields.io/travis/allenRoyston/ngCroppie
+[travis-image]: https://img.shields.io/travis/allenRoyston/ngCroppie.svg
+
+[bower-url]: https://github.com/allenRoyston/ngCroppie#readme
+[bower-image]: https://img.shields.io/bower/v/ngCroppie.svg
+
+[npm-url]: https://npmjs.org/package/ng-croppie
+[npm-image]: https://img.shields.io/npm/v/ng-croppie.svg
+
+<!--
+from david-dm
+[depstat-url]: https://david-dm.org/allenRoyston/ngCroppie
+[depstat-image]: https://david-dm.org/allenRoyston/ngCroppie.svg
+-->
+[depstat-url]: https://gemnasium.com/github.com/allenRoyston/ngCroppie
+[depstat-image]: https://gemnasium.com/badges/github.com/allenRoyston/ngCroppie.svg
+<!--
+[![DevDependencies Status][devdepstat-image]][devdepstat-url]
+[devdepstat-url]: https://david-dm.org/allenRoyston/ngCroppie?type=dev
+[devdepstat-image]: https://david-dm.org/allenRoyston/ngCroppie/dev-status.svg
+-->
+[npm-downloads-url]: https://www.npmjs.com/package/ng-croppie
+[npm-downloads-image]: https://img.shields.io/npm/dm/ng-croppie.svg
+
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
+[license-url]: LICENSE

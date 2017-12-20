@@ -2,11 +2,10 @@
  *	 Angular Croppie Tool (ngCroppie)
  *	 An awesome image cropping and rotating module for AngularJS.
  *
- *   Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
- *	 Inspired by Croppie.js people
- *	 https://github.com/Foliotek/Croppie
+ *	 Credits: https://github.com/allenRoyston/ngCroppie/graphs/contributors
+ *	 Inspired by Croppie.js https://github.com/Foliotek/Croppie
  *
- *	 Version: 1.0.1
+ *	 Version: 1.2.1
  * 	 License: MIT
  */
 (function () {
@@ -14,13 +13,7 @@
 
     var module = angular.module('ngCroppie', []);
 
-    /**
-     * Crops, rotates and zooms the image to this element
-     *
-     * 20170406 ADD - orif-jr
-     *  Added modularized code procedure
-     */
-    module.directive('ngCroppie', [function ($compile) {
+    module.directive('ngCroppie', ['$timeout', function ($timeout) {
         return {
             restrict: 'AE',
             scope: {
@@ -33,24 +26,31 @@
                 mousezoom: '@',
                 zoomslider: '@',
                 exif: '@',
+                enforceBoundary: '@',
                 orientation: '@',
                 update: '=',
-                ngModel: '='
+                ngModel: '=',
+                mobile: '@'
             },
             link: function (scope, elem, attr) {
                 // defaults
-                if (scope.viewport == undefined) {
-                    scope.viewport = {w: null, h: null};
+                if (typeof scope.viewport === 'undefined') {
+                    scope.viewport = { w: null, h: null };
                 }
-                if (scope.boundry == undefined) {
-                    scope.boundry = {w: null, h: null};
+                if (typeof scope.boundry === 'undefined') {
+                    scope.boundry = { w: null, h: null };
                 }
 
                 // catches
-                scope.viewport.w = (scope.viewport.w != undefined) ? scope.viewport.w : 300;
-                scope.viewport.h = (scope.viewport.h != undefined) ? scope.viewport.h : 300;
-                scope.boundry.w = (scope.boundry.w != undefined) ? scope.boundry.w : 400;
-                scope.boundry.h = (scope.boundry.h != undefined) ? scope.boundry.h : 400;
+                if (scope.mobile === 'true') {
+                    scope.viewport.w = 250; scope.viewport.h = 250;
+                    scope.boundry.w = 300; scope.boundry.h = 300;
+                } else {
+                    scope.viewport.w = (typeof scope.viewport.w !== 'undefined') ? scope.viewport.w : 300;
+                    scope.viewport.h = (typeof scope.viewport.h !== 'undefined') ? scope.viewport.h : 300;
+                    scope.boundry.w = (typeof scope.boundry.w !== 'undefined') ? scope.boundry.w : 400;
+                    scope.boundry.h = (typeof scope.boundry.h !== 'undefined') ? scope.boundry.h : 400;
+                }
 
                 // viewport cannot be larger than the boundaries
                 if (scope.viewport.w > scope.boundry.w) {
@@ -61,9 +61,9 @@
                 }
 
                 // convert string to Boolean
-                var zoom = (scope.zoom === 'true' || typeof scope.zoom == 'undefined'),
-                    mouseZoom = (scope.mousezoom === 'true' || typeof scope.mousezoom == 'undefined'),
-                    zoomSlider = (scope.zoomslider === 'true' || typeof scope.zoomslider == 'undefined');
+                var zoom = (scope.zoom === 'true' || typeof scope.zoom === 'undefined'),
+                    mouseZoom = (scope.mousezoom === 'true' || typeof scope.mousezoom === 'undefined'),
+                    zoomSlider = (scope.zoomslider === 'true' || typeof scope.zoomslider === 'undefined');
 
                 // define options
                 var options = {
@@ -80,10 +80,11 @@
                     mouseWheelZoom: mouseZoom,
                     showZoomer: zoomSlider,
                     enableExif: scope.exif,
+                    enforceBoundary: scope.enforceBoundary,
                     enableOrientation: scope.orientation
                 };
 
-                if (scope.update != undefined) {
+                if (typeof scope.update !== 'undefined') {
                     options.update = scope.update;
                 }
 
@@ -95,32 +96,42 @@
 
                 var intervalID;
 
+                // TODO: needs for investigation
                 var croppieCanvasRectangle = croppieCanvas.getBoundingClientRect();
 
-                // initialize interval only if action regitered within ngCroppie container
-                croppieBody.addEventListener("mousedown", function() {
+                // initialize interval only if action registered within ngCroppie container
+                croppieBody.addEventListener('mousedown', function() {
                     intervalID = window.setInterval(function() {
                         c.result('canvas').then(function(img) {
                             scope.$apply(function() {
                                 scope.ngModel = img;
                             });
                         });
-                    }, 250);
+                    }, 100);
                 }, false);
 
                 // check mouseZoom property to avoid needless event listener initialization
+                // separated "wheel" event listener to prevent conflict with Croppie default "wheel" event listener
                 if (mouseZoom) {
-                    // separated "wheel" event listener to prevent conflict with Croppie default "wheel" event listener
-                    croppieBody.addEventListener('wheel', function(evt) {
-                        console.log('Wheel event called');
+                    // IE9, Chrome, Opera, Safari
+                    croppieBody.addEventListener('mousewheel', function(evt) {
                         evt.preventDefault();
-                        if ((evt.clientX > croppieCanvasRectangle.left) && (evt.clientX < croppieCanvasRectangle.right) && (evt.clientY < croppieCanvasRectangle.bottom) && (evt.clientY > croppieCanvasRectangle.top)) {
-                            c.result('canvas').then(function(img) {
-                                scope.$apply(function() {
-                                    scope.ngModel = img;
-                                });
+                        c.result('canvas').then(function(img) {
+                            scope.$apply(function() {
+                                scope.ngModel = img;
                             });
-                        }
+                        });
+                    }, false);
+
+                    // Firefox
+                    croppieBody.addEventListener('DOMMouseScroll', function(evt) {
+                        evt.preventDefault();
+                        c.result('canvas').then(function(img) {
+                            scope.$apply(function() {
+                                scope.ngModel = img;
+                            });
+                        });
+
                     }, false);
                 }
 
@@ -141,20 +152,29 @@
 
                 // image rotation
                 scope.$watch('rotation', function(newValue, oldValue) {
-                    if (scope.orientation === 'false' || scope.orientation == undefined) {
+                    if (scope.orientation === 'false' || typeof scope.orientation === 'undefined') {
                         throw 'ngCroppie: Cannot rotate without \'orientation\' option';
                     } else {
                         c.rotate(newValue - oldValue);
+                        c.result('canvas').then(function(img) {
+                            scope.$apply(function () {
+                                scope.ngModel = img;
+                            });
+                        });
                     }
                 });
 
                 // respond to changes in src
                 scope.$watch('src', function(newValue, oldValue) {
-                    if (scope.src != undefined) {
+                    if (typeof scope.src === 'undefined') {
+                        throw 'ngCroppie: Image source undefined!'
+                    } else {
                         c.bind(scope.src);
-                        c.result('canvas').then(function(img) {
-                            scope.$apply(function () {
-                                scope.ngModel = img;
+                        window.setInterval(function() {  // force delay for the ng-file-upload
+                            c.result('canvas').then(function(img) {
+                                scope.$apply(function () {
+                                    scope.ngModel = img;
+                                });
                             });
                         });
                     }
