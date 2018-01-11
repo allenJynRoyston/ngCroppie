@@ -106,8 +106,8 @@ angular
 ### License
 MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
 
-[travis-url]: https://img.shields.io/travis/allenRoyston/ngCroppie
-[travis-image]: https://img.shields.io/travis/allenRoyston/ngCroppie.svg
+[travis-url]: https://travis-ci.org/orif-jr/ngCroppie
+[travis-image]: https://img.shields.io/travis/orif-jr/ngCroppie.svg
 
 [bower-url]: https://github.com/allenRoyston/ngCroppie#readme
 [bower-image]: https://img.shields.io/bower/v/ngCroppie.svg
