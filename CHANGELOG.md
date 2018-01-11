@@ -1,3 +1,14 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/allenRoyston/ngCroppie/compare/1.2.1...1.2.2) (2018-01-11)
+
+### Bug Fixes
+* fix source interval time for firefox ([75d831f](https://github.com/allenRoyston/ngCroppie/commit/75d831f))
+* fix travis build badge ([2aa5c3e](https://github.com/allenRoyston/ngCroppie/commit/2aa5c3e))
+
+### Features
+* add changelog file ([b1c84e6](https://github.com/allenRoyston/ngCroppie/commit/b1c84e6))
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/allenRoyston/ngCroppie/compare/1.2.0...1.2.1) (2017-12-19)
 
