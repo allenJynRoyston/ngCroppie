@@ -1,36 +1,13 @@
 {
   "name": "ng-croppie",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "An awesome image cropping and rotating module for AngularJS",
-  "main": [
-    "ng-croppie.js",
-    "ng-croppie.css"
-  ],
-  "scripts": {
-    "_test": "echo \"Error: no test specified\" && exit 1",
-    "test": "echo \"Error: no test specified\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/allenRoyston/ngCroppie.git"
-  },
-  "keywords": [
-    "angular",
-    "croppie",
-    "cropping",
-    "crop",
-    "rotate",
-    "image"
-  ],
+  "homepage": "https://github.com/allenRoyston/ngCroppie#readme",
   "authors": [
     "Allen Royston <allen.acr@gmail.com>",
     "Orif N. Jr. <orif.zade@gmail.com>"
   ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/allenRoyston/ngCroppie/issues"
-  },
-  "homepage": "https://github.com/allenRoyston/ngCroppie#readme",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "3.9.1",
     "gulp-concat": "2.6.1",
@@ -39,5 +16,31 @@
     "gulp-rename": "1.2.2",
     "gulp-uglify": "3.0.0",
     "pump": "2.0.0"
+  },
+  "scripts": {
+    "lint": "gulp lint",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "postchangelog": "git commit -am \"chore(): update changelog\"",
+    "_test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\""
+  },
+  "main": [
+    "ng-croppie.js",
+    "ng-croppie.css"
+  ],
+  "keywords": [
+    "angular",
+    "croppie",
+    "cropping",
+    "crop",
+    "rotate",
+    "image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allenRoyston/ngCroppie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/allenRoyston/ngCroppie/issues"
   }
 }

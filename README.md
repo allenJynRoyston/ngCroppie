@@ -89,7 +89,7 @@ angular
 - **Boolean** `mobile`: (optional) enable mobile view - defaults to viewport: 250x250 and boundry: 300x300;
 
 ## Version
-1.2.1
+1.2.2
 
 ### Contributors
 
@@ -99,15 +99,15 @@ angular
 - alanheppenstall
 
 ### Updates
-- added enforceBoundary option
-- updated dependencies
-- stability improvement
+- fix source interval time for firefox
+- fix travis build badge
+- add changelog file
 
 ### License
 MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
 
-[travis-url]: https://img.shields.io/travis/allenRoyston/ngCroppie
-[travis-image]: https://img.shields.io/travis/allenRoyston/ngCroppie.svg
+[travis-url]: https://travis-ci.org/orif-jr/ngCroppie
+[travis-image]: https://img.shields.io/travis/orif-jr/ngCroppie.svg
 
 [bower-url]: https://github.com/allenRoyston/ngCroppie#readme
 [bower-image]: https://img.shields.io/bower/v/ngCroppie.svg
