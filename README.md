@@ -91,17 +91,17 @@ angular
 ## Version
 1.2.2
 
+### Updates
+- fix source interval time for firefox
+- fix travis build badge
+- add changelog file
+
 ### Contributors
 
 - orif-jr
 - stasinua
 - htao00
 - alanheppenstall
-
-### Updates
-- fix source interval time for firefox
-- fix travis build badge
-- add changelog file
 
 ### License
 MIT © [ngCroppie](https://github.com/allenRoyston/ngCroppie#readme)
